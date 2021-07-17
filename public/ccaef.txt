@@ -1,0 +1,1205 @@
+# This file is a "template" of which env vars need to be defined for your application
+# Copy this file to .env file for development, create environment variables when deploying to production
+# https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+
+###> symfony/framework-bundle ###
+APP_ENV=prod
+APP_SECRET=change_this_to_something_unique
+#TRUSTED_PROXIES=127.0.0.1,127.0.0.2
+#TRUSTED_HOSTS=localhost,example.com
+###< symfony/framework-bundle ###
+
+###> doctrine/doctrine-bundle ###
+# Format described at http://docs.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html#connecting-using-a-url
+# For a MySQL database, use: "mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=10.2.12&charset=utf8"
+# For a MariaDB database, use: "mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=mariadb-10.2.12"
+# For an SQLite database, use: "sqlite:///%kernel.project_dir%/var/data/kimai.sqlite"
+# IMPORTANT: You MUST configure your server version, either here or in config/packages/doctrine.yaml
+# DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name
+DATABASE_URL=mysql://[[softdbuser]]:[[softdbpass]]@[[softdbhost]]:3306/[[softdb]]?serverVersion=[[dbser_ver]]&charset=utf8
+###< doctrine/doctrine-bundle ###
+
+###> nelmio/cors-bundle ###
+CORS_ALLOW_ORIGIN=^https?://localhost(:[0-9]+)?$
+###< nelmio/cors-bundle ###
+
+### Email configuration
+# SMTP: smtp://localhost:25?encryption=&auth_mode=
+# Google: gmail://username:password@default
+# Amazon: ses://ACCESS_KEY:SECRET_KEY@default?region=eu-west-1
+# Mailchimp: mandrill://KEY@default
+# Mailgun: mailgun://KEY:DOMAIN@default
+# Postmark: postmark://ID@default
+# Sendgrid: sendgrid://KEY@default
+# Disable emails: null://null
+MAILER_URL=null://null
+MAILER_FROM=kimai@example.com
+#--------------------------------------------------------------------
+# Example Environment Configuration file
+#
+# This file can be used as a starting point for your own
+# custom .env files, and contains most of the possible settings
+# available in a default install.
+#
+# By default, all of the settings are commented out. If you want
+# to override the setting, you must un-comment it by removing the '#'
+# at the beginning of the line.
+#--------------------------------------------------------------------
+
+#--------------------------------------------------------------------
+# ENVIRONMENT
+#--------------------------------------------------------------------
+
+CI_ENVIRONMENT = production
+
+#--------------------------------------------------------------------
+# APP
+#--------------------------------------------------------------------
+
+app.baseURL = '[[softurl]]/public/'
+# app.forceGlobalSecureRequests = false
+
+# app.sessionDriver = 'CodeIgniter\Session\Handlers\FileHandler'
+# app.sessionCookieName = 'ci_session'
+# app.sessionSavePath = NULL
+# app.sessionMatchIP = false
+# app.sessionTimeToUpdate = 300
+# app.sessionRegenerateDestroy = false
+
+# app.cookiePrefix = ''
+# app.cookieDomain = ''
+# app.cookiePath = '/'
+# app.cookieSecure = false
+# app.cookieHTTPOnly = false
+# app.cookieSameSite = 'Lax'
+
+# app.CSRFProtection  = false
+# app.CSRFTokenName   = 'csrf_test_name'
+# app.CSRFCookieName  = 'csrf_cookie_name'
+# app.CSRFExpire      = 7200
+# app.CSRFRegenerate  = true
+# app.CSRFExcludeURIs = []
+# app.CSRFSameSite    = 'Lax'
+
+# app.CSPEnabled = false
+
+#--------------------------------------------------------------------
+# DATABASE
+#--------------------------------------------------------------------
+
+database.default.hostname = [[softdbhost]]
+database.default.database = [[softdb]]
+database.default.username = [[softdbuser]]
+database.default.password = [[softdbpass]]
+database.default.DBDriver = MySQLi
+database.default.DBPrefix = [[dbprefix]]
+
+# database.tests.hostname = localhost
+# database.tests.database = ci4
+# database.tests.username = root
+# database.tests.password = root
+# database.tests.DBDriver = MySQLi
+
+#--------------------------------------------------------------------
+# CONTENT SECURITY POLICY
+#--------------------------------------------------------------------
+
+# contentsecuritypolicy.reportOnly = false
+# contentsecuritypolicy.defaultSrc = 'none'
+# contentsecuritypolicy.scriptSrc = 'self'
+# contentsecuritypolicy.styleSrc = 'self'
+# contentsecuritypolicy.imageSrc = 'self'
+# contentsecuritypolicy.base_uri = null
+# contentsecuritypolicy.childSrc = null
+# contentsecuritypolicy.connectSrc = 'self'
+# contentsecuritypolicy.fontSrc = null
+# contentsecuritypolicy.formAction = null
+# contentsecuritypolicy.frameAncestors = null
+# contentsecuritypolicy.mediaSrc = null
+# contentsecuritypolicy.objectSrc = null
+# contentsecuritypolicy.pluginTypes = null
+# contentsecuritypolicy.reportURI = null
+# contentsecuritypolicy.sandbox = false
+# contentsecuritypolicy.upgradeInsecureRequests = false
+
+#--------------------------------------------------------------------
+# ENCRYPTION
+#--------------------------------------------------------------------
+
+# encryption.key =
+# encryption.driver = OpenSSL
+# encryption.blockSize = 16
+# encryption.digest = SHA512
+
+#--------------------------------------------------------------------
+# HONEYPOT
+#--------------------------------------------------------------------
+
+# honeypot.hidden = 'true'
+# honeypot.label = 'Fill This Field'
+# honeypot.name = 'honeypot'
+# honeypot.template = '<label>{label}</label><input type="text" name="{name}" value=""/>'
+# honeypot.container = '<div style="display:none">{template}</div>'
+
+#--------------------------------------------------------------------
+# SECURITY
+#--------------------------------------------------------------------
+
+# security.tokenName  = 'csrf_token_name'
+# security.headerName = 'X-CSRF-TOKEN'
+# security.cookieName = 'csrf_cookie_name'
+# security.expires    = 7200
+# security.regenerate = true
+# security.redirect   = true
+# security.samesite   = 'Lax'
+
+#--------------------------------------------------------------------
+# LOGGER
+#--------------------------------------------------------------------
+
+# logger.threshold = 4
+# For a complete list of core environment variables see
+# https://docs.silverstripe.org/en/4/getting_started/environment_management/#core-environment-variables
+
+# DB credentials
+SS_DATABASE_CLASS="MySQLDatabase"
+SS_DATABASE_SERVER="[[softdbhost]]"
+SS_DATABASE_USERNAME="[[softdbuser]]"
+SS_DATABASE_PASSWORD="[[softdbpass]]"
+SS_DATABASE_NAME="[[softdb]]"
+SS_DEFAULT_ADMIN_USERNAME="[[admin_email]]"
+SS_DEFAULT_ADMIN_PASSWORD="[[admin_pass]]"
+# WARNING: in a live environent, change this to "live" instead of dev
+SS_ENVIRONMENT_TYPE="live"
+APP_NAME=[[site_name]]
+APP_ENV=production
+APP_VERSION=1.3.1
+APP_KEY=[[APP_KEY]]
+APP_DEBUG=false
+APP_URL=[[softurl]]/public
+APP_ADMIN_URL=admin
+APP_TIMEZONE=America/New_York
+APP_LOCALE=en
+LOG_CHANNEL=stack
+APP_CURRENCY=USD
+DB_CONNECTION=mysql
+DB_HOST=[[softdbhost]]
+DB_PORT=3306
+DB_DATABASE=[[softdb]]
+DB_USERNAME=[[softdbuser]]
+DB_PASSWORD=[[softdbpass]]
+DB_PREFIX=
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+QUEUE_DRIVER=sync
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+MAIL_DRIVER=smtp
+MAIL_HOST=[[out_host_server]]
+MAIL_PORT=[[out_m_port]]
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=ssl
+SHOP_MAIL_FROM=
+ADMIN_MAIL_TO=
+MAIL_FROM_NAME=
+fixer_api_key=
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+FACEBOOK_CLIENT_ID=
+FACEBOOK_CLIENT_SECRET=
+FACEBOOK_CALLBACK_URL=https://yourhost.com/customer/social-login/facebook/callback
+TWITTER_CLIENT_ID=
+TWITTER_CLIENT_SECRET=
+TWITTER_CALLBACK_URL=https://yourhost.com/customer/social-login/twitter/callback
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_CALLBACK_URL=https://yourhost.com/customer/social-login/google/callback
+LINKEDIN_CLIENT_ID=
+LINKEDIN_CLIENT_SECRET=
+LINKEDIN_CALLBACK_URL=https://yourhost.com/customer/social-login/linkedin/callback
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+GITHUB_CALLBACK_URL=https://yourhost.com/customer/social-login/github/callbackAPP_NAME="Invoice Ninja"
+APP_ENV=production
+APP_KEY=[[key]]
+APP_DEBUG=false
+
+APP_URL=[[protocol]]://[[domhost]][[relativeurl]]/public
+
+DB_CONNECTION=db-ninja-01
+MULTI_DB_ENABLED=false
+
+DISABLE_AUTO_UPDATE=true
+
+DB_HOST1=[[softdbhost]]
+DB_DATABASE1=[[softdb]]
+DB_USERNAME1=[[softdbuser]]
+DB_PASSWORD1=[[softdbpass]]
+DB_PORT1=3306
+
+DB_HOST2=localhost
+DB_DATABASE2=ninja2
+DB_USERNAME2=ninja
+DB_PASSWORD2=ninja
+DB_PORT2=3306
+
+DEMO_MODE=false
+
+BROADCAST_DRIVER=log
+LOG_CHANNEL=stack
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_MAILER=log
+MAIL_HOST=
+MAIL_PORT=
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=
+MAIL_FROM_NAME=
+
+POSTMARK_API_TOKEN=
+REQUIRE_HTTPS=[[https_enable]]
+
+GOOGLE_MAPS_API_KEY=
+ERROR_EMAIL=
+TRUSTED_PROXIES=
+
+NINJA_ENVIRONMENT=selfhost
+
+PHANTOMJS_PDF_GENERATION=true
+PHANTOMJS_KEY='a-demo-key-with-low-quota-per-ip-address'
+PHANTOMJS_SECRET=secret
+
+UPDATE_SECRET=
+
+COMPOSER_AUTH='{"github-oauth": {"github.com": "${{ secrets.GITHUB_TOKEN }}"}}'
+SENTRY_LARAVEL_DSN=https://cc7e8e2c678041689e53e409b7dba236@sentry.invoicing.co/5# You can leave this on "local". If you change it to production most console commands will ask for extra confirmation.
+# Never set it to "testing".
+APP_ENV=local
+
+# Set to true if you want to see debug information in error screens.
+APP_DEBUG=false
+
+# This should be your email address.
+# If you use Docker or similar, you can set this variable from a file by using SITE_OWNER_FILE
+SITE_OWNER=mail@example.com
+
+# The encryption key for your sessions. Keep this very secure.
+# Change it to a string of exactly 32 chars or use something like `php artisan key:generate` to generate it.
+# If you use Docker or similar, you can set this variable from a file by using APP_KEY_FILE
+APP_KEY=base64:[[APP_KEY]]
+
+# Firefly III will launch using this language (for new users and unauthenticated visitors)
+# For a list of available languages: https://github.com/firefly-iii/firefly-iii/tree/main/resources/lang
+#
+# If text is still in English, remember that not everything may have been translated.
+DEFAULT_LANGUAGE=[[language]]
+
+# The locale defines how numbers are formatted.
+# by default this value is the same as whatever the language is.
+DEFAULT_LOCALE=equal
+
+# Change this value to your preferred time zone.
+# Example: Europe/Amsterdam
+# For a list of supported time zones, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+TZ=Europe/Amsterdam
+
+# TRUSTED_PROXIES is a useful variable when using Docker and/or a reverse proxy.
+# Set it to ** and reverse proxies work just fine.
+TRUSTED_PROXIES=
+
+# The log channel defines where your log entries go to.
+# Several other options exist. You can use 'single' for one big fat error log (not recommended).
+# Also available are 'syslog', 'errorlog' and 'stdout' which will log to the system itself.
+# A rotating log option is 'daily', creates 5 files that (surprise) rotate.
+# Default setting 'stack' will log to 'daily' and to 'stdout' at the same time.
+
+# - Docker + versions <= 4.8.1.8 and before: use "stdout"
+# - Docker + versions >  4.8.1.8           : use "docker_out"
+# - Docker + versions >=  5.1.1            : use "stack"
+# - For everything else (als not Docker)   : use 'stack'
+
+LOG_CHANNEL=daily
+
+# Log level. You can set this from least severe to most severe:
+# debug, info, notice, warning, error, critical, alert, emergency
+# If you set it to debug your logs will grow large, and fast. If you set it to emergency probably
+# nothing will get logged, ever.
+APP_LOG_LEVEL=notice
+
+# Audit log level.
+# set to "emergency" if you dont want to store audit logs.
+# leave on info otherwise.
+AUDIT_LOG_LEVEL=info
+
+# Database credentials. Make sure the database exists. I recommend a dedicated user for Firefly III
+# For other database types, please see the FAQ: https://docs.firefly-iii.org/support/faq
+# If you use Docker or similar, you can set these variables from a file by appending them with _FILE
+# Use "pgsql" for PostgreSQL
+# Use "mysql" for MySQL and MariaDB.
+# Use "sqlite" for SQLite.
+DB_CONNECTION=mysql
+DB_HOST=[[softdbhost]]
+DB_PORT=3306
+DB_DATABASE=[[softdb]]
+DB_USERNAME=[[softdbuser]]
+DB_PASSWORD=[[softdbpass]]
+
+# MySQL supports SSL. You can configure it here.
+# If you use Docker or similar, you can set these variables from a file by appending them with _FILE
+MYSQL_USE_SSL=false
+MYSQL_SSL_VERIFY_SERVER_CERT=true
+# You need to set at least of these options
+MYSQL_SSL_CAPATH=/etc/ssl/certs/
+MYSQL_SSL_CA=
+MYSQL_SSL_CERT=
+MYSQL_SSL_KEY=
+MYSQL_SSL_CIPHER=
+
+# PostgreSQL supports SSL. You can configure it here.
+# If you use Docker or similar, you can set these variables from a file by appending them with _FILE
+PGSQL_SSL_MODE=prefer
+PGSQL_SSL_ROOT_CERT=null
+PGSQL_SSL_CERT=null
+PGSQL_SSL_KEY=null
+PGSQL_SSL_CRL_FILE=null
+
+# If you're looking for performance improvements, you could install memcached.
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+
+# If you set either of these to 'redis', you might want to update these settings too
+# If you use Docker or similar, you can set REDIS_HOST_FILE, REDIS_PASSWORD_FILE or
+# REDIS_PORT_FILE to set the value from a file instead of from an environment variable
+
+# can be tcp, unix or http
+REDIS_SCHEME=tcp
+
+# use only when using 'unix' for REDIS_SCHEME. Leave empty otherwise.
+REDIS_PATH=
+
+# use only when using 'tcp' or 'http' for REDIS_SCHEME. Leave empty otherwise.
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
+
+REDIS_PASSWORD=null
+# always use quotes and make sure redis db "0" and "1" exists. Otherwise change accordingly.
+REDIS_DB="0"
+REDIS_CACHE_DB="1"
+
+# Cookie settings. Should not be necessary to change these.
+# If you use Docker or similar, you can set COOKIE_DOMAIN_FILE to set
+# the value from a file instead of from an environment variable
+COOKIE_PATH="/"
+COOKIE_DOMAIN=
+COOKIE_SECURE=false
+COOKIE_SAMESITE=lax
+
+# If you want Firefly III to mail you, update these settings
+# For instructions, see: https://docs.firefly-iii.org/advanced-installation/email
+# If you use Docker or similar, you can set these variables from a file by appending them with _FILE
+MAIL_MAILER=log
+MAIL_HOST=null
+MAIL_PORT=2525
+MAIL_FROM=changeme@example.com
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+
+# Other mail drivers:
+# If you use Docker or similar, you can set these variables from a file by appending them with _FILE
+MAILGUN_DOMAIN=
+MAILGUN_SECRET=
+
+
+# If you are on EU region in mailgun, use api.eu.mailgun.net, otherwise use api.mailgun.net
+# If you use Docker or similar, you can set this variable from a file by appending it with _FILE
+MAILGUN_ENDPOINT=api.mailgun.net
+
+# If you use Docker or similar, you can set these variables from a file by appending them with _FILE
+MANDRILL_SECRET=
+SPARKPOST_SECRET=
+
+# Firefly III can send you the following messages
+SEND_REGISTRATION_MAIL=true
+SEND_ERROR_MESSAGE=true
+SEND_LOGIN_NEW_IP_WARNING=true
+
+# These messages contain (sensitive) transaction information:
+SEND_REPORT_JOURNALS=true
+
+# Set a Mapbox API key here (see mapbox.com) so there might be a map available at various places.
+# If you use Docker or similar, you can set this variable from a file by appending it with _FILE
+# Take note: it is no longer necessary to set this value, and it will be removed in future versions.
+MAPBOX_API_KEY=
+
+#
+# Instead of the mapbox API key, just set this value to true if you want to set the location
+# of certain things, like transactions. Since this involves an external service, it's optional
+# and disabled by default.
+#
+ENABLE_EXTERNAL_MAP=false
+
+# The map will default to this location:
+MAP_DEFAULT_LAT=51.983333
+MAP_DEFAULT_LONG=5.916667
+MAP_DEFAULT_ZOOM=6
+
+# Firefly III has two options for user authentication. "eloquent" is the default,
+# and "ldap" for LDAP servers.
+# For full instructions on these settings please visit:
+# https://docs.firefly-iii.org/advanced-installation/authentication
+# If you use Docker or similar, you can set this variable from a file by appending it with _FILE
+#
+# If you enable 'ldap' AND you run Docker, the Docker image will contact packagist.org
+# This is necessary to download the required packages.
+#
+LOGIN_PROVIDER=eloquent
+
+# It's also possible to change the way users are authenticated. You could use Authelia for example.
+# Authentication via the REMOTE_USER header is supported. Change the value below to "remote_user_guard".
+#
+# This will also allow Windows SSO.
+#
+# If you do this please read the documentation for instructions and warnings:
+# https://docs.firefly-iii.org/advanced-installation/authentication
+#
+# This function is available in Firefly III v5.3.0 and higher.
+AUTHENTICATION_GUARD=web
+
+# If the guard is changed, Firefly III uses the 'REMOTE_USER' header as per RFC 3875.
+# You can also use another header, like AUTH_USER when using Windows SSO.
+# Some systems use X-Auth headers. In that case, use HTTP_X_AUTH_USERNAME or HTTP_X_AUTH_EMAIL
+# Depending on your system, REMOTE_USER may need to be changed to HTTP_REMOTE_USER
+#
+# If this header is 'unexpectedly empty', check out the documentation.
+# https://docs.firefly-iii.org/advanced-installation/authentication
+#
+AUTHENTICATION_GUARD_HEADER=REMOTE_USER
+
+#
+# Firefly III uses email addresses as user identifiers. When you're using an external authentication guard
+# that doesn't do this, Firefly III is incapable of emailing you. Messages sent to "Bill Gates" always fail.
+#
+# However, if you set this value, Firefly III will store the value from this header as the user's backup
+# email address and use it to communicate. So user "Bill Gates" could still have
+# the email address "bill@microsoft.com".
+#
+# Example value: AUTHENTICATION_GUARD_EMAIL=HTTP_X_AUTH_EMAIL
+#
+AUTHENTICATION_GUARD_EMAIL=
+
+
+# It's impossible to log out users who's authentication is handled by an external system.
+# Enter a custom URL here that will force a logout (your authentication provider can tell you).
+# Setting this variable only works when AUTHENTICATION_GUARD != web
+#
+CUSTOM_LOGOUT_URI=
+
+# LDAP connection configuration
+# OpenLDAP, FreeIPA or ActiveDirectory
+# # If you use Docker or similar, you can set this variable from a file by appending it with _FILE
+ADLDAP_CONNECTION_SCHEME=OpenLDAP
+ADLDAP_AUTO_CONNECT=true
+
+# LDAP connection settings
+# You can set the following variables from a file by appending them with _FILE:
+# ADLDAP_CONTROLLERS, ADLDAP_PORT, ADLDAP_BASEDN
+ADLDAP_CONTROLLERS=
+ADLDAP_PORT=389
+ADLDAP_TIMEOUT=5
+ADLDAP_BASEDN=""
+ADLDAP_FOLLOW_REFFERALS=false
+
+# SSL/TLS settings
+ADLDAP_USE_SSL=false
+ADLDAP_USE_TLS=false
+ADLDAP_SSL_CACERTDIR=
+ADLDAP_SSL_CACERTFILE=
+ADLDAP_SSL_CERTFILE=
+ADLDAP_SSL_KEYFILE=
+ADLDAP_SSL_CIPHER_SUITE=
+ADLDAP_SSL_REQUIRE_CERT=
+
+# You can set the following variables from a file by appending them with _FILE:
+ADLDAP_ADMIN_USERNAME=
+ADLDAP_ADMIN_PASSWORD=
+
+# You can set the following variables from a file by appending them with _FILE:
+ADLDAP_ACCOUNT_PREFIX=
+ADLDAP_ACCOUNT_SUFFIX=
+
+# LDAP authentication settings.
+ADLDAP_PASSWORD_SYNC=false
+ADLDAP_LOGIN_FALLBACK=false
+
+ADLDAP_DISCOVER_FIELD=distinguishedname
+ADLDAP_AUTH_FIELD=distinguishedname
+
+# field to sync as local username.
+# You can set the following variable from a file by appending it with _FILE:
+ADLDAP_SYNC_FIELD=userprincipalname
+
+# You can disable the X-Frame-Options header if it interferes with tools like
+# Organizr. This is at your own risk. Applications running in frames run the risk
+# of leaking information to their parent frame.
+DISABLE_FRAME_HEADER=false
+
+# You can disable the Content Security Policy header when you're using an ancient browser
+# or any version of Microsoft Edge / Internet Explorer (which amounts to the same thing really)
+# This leaves you with the risk of not being able to stop XSS bugs should they ever surface.
+# This is at your own risk.
+DISABLE_CSP_HEADER=false
+
+# If you wish to track your own behavior over Firefly III, set valid analytics tracker information here.
+# Nobody uses this except for me on the demo site. But hey, feel free to use this if you want to.
+# Do not prepend the TRACKER_URL with http:// or https://
+# The only tracker supported is Matomo.
+# You can set the following variables from a file by appending them with _FILE:
+TRACKER_SITE_ID=
+TRACKER_URL=
+
+# Firefly III can collect telemetry on how you use Firefly III. This is opt-in.
+# In order to allow this, change the following variable to true.
+# To read more about this feature, go to this page: https://docs.firefly-iii.org/support/telemetry
+SEND_TELEMETRY=false
+
+#
+# Firefly III supports webhooks. These are security sensitive and must be enabled manually first.
+#
+ALLOW_WEBHOOKS=false
+
+# You can fine tune the start-up of a Docker container by editing these environment variables.
+# Use this at your own risk. Disabling certain checks and features may result in lost of inconsistent data.
+# However if you know what you're doing you can significantly speed up container start times.
+# Set each value to true to enable, or false to disable.
+
+# Check if the SQLite database exists. Can be skipped if you're not using SQLite.
+# Won't significantly speed up things.
+DKR_CHECK_SQLITE=true
+
+# Run database creation and migration commands. Disable this only if you're 100% sure the DB exists
+# and is up to date.
+DKR_RUN_MIGRATION=true
+
+# Run database upgrade commands. Disable this only when you're 100% sure your DB is up-to-date
+# with the latest fixes (outside of migrations!)
+DKR_RUN_UPGRADE=true
+
+# Verify database integrity. Includes all data checks and verifications.
+# Disabling this makes Firefly III assume your DB is intact.
+DKR_RUN_VERIFY=true
+
+# Run database reporting commands. When disabled, Firefly III won't go over your data to report current state.
+# Disabling this should have no impact on data integrity or safety but it won't warn you of possible issues.
+DKR_RUN_REPORT=true
+
+# Generate OAuth2 keys.
+# When disabled, Firefly III won't attempt to generate OAuth2 Passport keys. This won't be an issue, IFF (if and only if)
+# you had previously generated keys already and they're stored in your database for restoration.
+DKR_RUN_PASSPORT_INSTALL=true
+
+# Leave the following configuration vars as is.
+# Unless you like to tinker and know what you're doing.
+APP_NAME="[[site_name]]"
+ADLDAP_CONNECTION=default
+BROADCAST_DRIVER=log
+QUEUE_DRIVER=sync
+CACHE_PREFIX=firefly
+PUSHER_KEY=
+IPINFO_TOKEN=
+PUSHER_SECRET=
+PUSHER_ID=
+DEMO_USERNAME=
+DEMO_PASSWORD=
+IS_HEROKU=false
+FIREFLY_III_LAYOUT=v1
+
+#
+# If you have trouble configuring your Firefly III installation, DON'T BOTHER setting this variable.
+# It won't work. It doesn't do ANYTHING. Don't believe the lies you read online. I'm not joking.
+# This configuration value WILL NOT HELP.
+#
+# This variable is ONLY used in some of the emails Firefly III sends around. Nowhere else.
+# So when configuring anything WEB related this variable doesn't do anything. Nothing
+#
+# If you're stuck I understand you get desperate but look SOMEWHERE ELSE.
+#
+APP_URL=[[softurl]]/public
+# Fusio
+FUSIO_PROJECT_KEY="[[fusio_project_key]]"
+FUSIO_HOST="127.0.0.1"
+FUSIO_URL="[[softurl]]/public"
+FUSIO_APPS_URL="[[softurl]]/public/apps"
+FUSIO_ENV="prod" # dev or prod
+FUSIO_DB_NAME="[[softdb]]"
+FUSIO_DB_USER="[[softdbuser]]"
+FUSIO_DB_PW="[[softdbpass]]"
+FUSIO_DB_HOST="[[softdbhost]]"
+# Drivers: pdo_mysql, pdo_pgsql, sqlsrv, oci8, sqlanywhere, pdo_sqlite
+FUSIO_DB_DRIVER="pdo_mysql"
+
+# Config (resources/config.yaml)
+# Login provider
+PROVIDER_FACEBOOK_KEY=""
+PROVIDER_FACEBOOK_SECRET=""
+PROVIDER_GOOGLE_KEY=""
+PROVIDER_GOOGLE_SECRET=""
+PROVIDER_GITHUB_KEY=""
+PROVIDER_GITHUB_SECRET=""
+
+# Register captcha
+RECAPTCHA_KEY=""
+RECAPTCHA_SECRET=""
+APP_ENV=local
+APP_DEBUG=false
+APP_KEY=[[APP_KEY]]
+
+DB_HOST=[[softdbhost]]
+DB_DATABASE=[[softdb]]
+DB_USERNAME=[[softdbuser]]
+DB_PASSWORD=[[softdbpass]]
+
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+
+ATLANTIS_INSTALL=true
+MULTI_SITES=false
+# In all environments, the following files are loaded if they exist,
+# the later taking precedence over the former:
+#
+#  * .env                contains default values for the environment variables needed by the app
+#  * .env.local          uncommitted file with local overrides
+#  * .env.$APP_ENV       committed environment-specific defaults
+#  * .env.$APP_ENV.local uncommitted environment-specific overrides
+#
+# Real environment variables win over .env files.
+#
+# DO NOT DEFINE PRODUCTION SECRETS IN THIS FILE NOR IN ANY OTHER COMMITTED FILES.
+#
+# Run "composer dump-env prod" to compile .env files for production use (requires symfony/flex >=1.2).
+# https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+
+###> symfony/framework-bundle ###
+APP_ENV=prod
+APP_SECRET=YOUR_APP_SECRET
+#TRUSTED_PROXIES=127.0.0.1,127.0.0.2
+#TRUSTED_HOSTS='^localhost|example\.com$'
+###< symfony/framework-bundle ###
+
+###> doctrine/doctrine-bundle ###
+# Format described at https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/configuration.html#connecting-using-a-url
+# For an SQLite database, use: "sqlite:///%kernel.project_dir%/var/data.db"
+# Configure your db driver and server_version in config/packages/doctrine.yaml
+DATABASE_URL=mysql://[[softdbuser]]:[[softdbpass]]@[[softdbhost]]:3306/[[softdb]]
+###< doctrine/doctrine-bundle ###
+
+###> symfony/swiftmailer-bundle ###
+# For Gmail as a transport, use: "gmail://username:password@localhost"
+# For a generic SMTP server, use: "smtp://localhost:25?encryption=&auth_mode="
+# Delivery is disabled by default via "null://localhost"
+MAILER_URL=null://localhost
+###< symfony/swiftmailer-bundle ###
+# --------------------------------------------
+# REQUIRED: BASIC APP SETTINGS
+# --------------------------------------------
+APP_ENV=production
+APP_DEBUG=false
+APP_KEY=[[APP_KEY]]
+APP_URL=[[softurl]]/public
+APP_TIMEZONE='UTC'
+APP_LOCALE=en
+MAX_RESULTS=500
+
+# --------------------------------------------
+# REQUIRED: UPLOADED FILE STORAGE SETTINGS
+# --------------------------------------------
+PRIVATE_FILESYSTEM_DISK=local
+PUBLIC_FILESYSTEM_DISK=local_public
+
+# --------------------------------------------
+# REQUIRED: DATABASE SETTINGS
+# --------------------------------------------
+DB_CONNECTION=mysql
+DB_HOST=[[softdbhost]]
+DB_DATABASE=[[softdb]]
+DB_USERNAME=[[softdbuser]]
+DB_PASSWORD=[[softdbpass]]
+DB_PREFIX=[[dbprefix]]
+DB_DUMP_PATH='/usr/bin'
+DB_CHARSET=utf8mb4
+DB_COLLATION=utf8mb4_unicode_ci
+
+# --------------------------------------------
+# OPTIONAL: SSL DATABASE SETTINGS
+# --------------------------------------------
+DB_SSL=false
+DB_SSL_IS_PAAS=false
+DB_SSL_KEY_PATH=null
+DB_SSL_CERT_PATH=null
+DB_SSL_CA_PATH=null
+DB_SSL_CIPHER=null
+
+# --------------------------------------------
+# REQUIRED: OUTGOING MAIL SERVER SETTINGS
+# --------------------------------------------
+MAIL_DRIVER=smtp
+MAIL_HOST=email-smtp.us-west-2.amazonaws.com
+MAIL_PORT=587
+MAIL_USERNAME=YOURUSERNAME
+MAIL_PASSWORD=YOURPASSWORD
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDR=you@example.com
+MAIL_FROM_NAME='Snipe-IT'
+MAIL_REPLYTO_ADDR=you@example.com
+MAIL_REPLYTO_NAME='Snipe-IT'
+MAIL_AUTO_EMBED_METHOD='attachment'
+
+# --------------------------------------------
+# REQUIRED: IMAGE LIBRARY
+# This should be gd or imagick
+# --------------------------------------------
+IMAGE_LIB=gd
+
+
+# --------------------------------------------
+# OPTIONAL: BACKUP SETTINGS
+# --------------------------------------------
+MAIL_BACKUP_NOTIFICATION_DRIVER=null
+MAIL_BACKUP_NOTIFICATION_ADDRESS=null
+BACKUP_ENV=true
+
+
+# --------------------------------------------
+# OPTIONAL: SESSION SETTINGS
+# --------------------------------------------
+SESSION_LIFETIME=12000
+EXPIRE_ON_CLOSE=false
+ENCRYPT=false
+COOKIE_NAME=snipeit_session
+COOKIE_DOMAIN=null
+SECURE_COOKIES=false
+API_TOKEN_EXPIRATION_YEARS=40
+
+# --------------------------------------------
+# OPTIONAL: SECURITY HEADER SETTINGS
+# --------------------------------------------
+APP_TRUSTED_PROXIES=192.168.1.1,10.0.0.1
+ALLOW_IFRAMING=false
+REFERRER_POLICY=same-origin
+ENABLE_CSP=false
+CORS_ALLOWED_ORIGINS=null
+ENABLE_HSTS=false
+
+# --------------------------------------------
+# OPTIONAL: CACHE SETTINGS
+# --------------------------------------------
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+CACHE_PREFIX=snipeit
+
+# --------------------------------------------
+# OPTIONAL: REDIS SETTINGS
+# --------------------------------------------
+REDIS_HOST=null
+REDIS_PASSWORD=null
+REDIS_PORT=null
+
+# --------------------------------------------
+# OPTIONAL: MEMCACHED SETTINGS
+# --------------------------------------------
+MEMCACHED_HOST=null
+MEMCACHED_PORT=null
+
+# --------------------------------------------
+# OPTIONAL: PUBLIC S3 Settings
+# --------------------------------------------
+PUBLIC_AWS_SECRET_ACCESS_KEY=null
+PUBLIC_AWS_ACCESS_KEY_ID=null
+PUBLIC_AWS_DEFAULT_REGION=null
+PUBLIC_AWS_BUCKET=null
+PUBLIC_AWS_URL=null
+PUBLIC_AWS_BUCKET_ROOT=null
+
+# --------------------------------------------
+# OPTIONAL: PRIVATE S3 Settings
+# --------------------------------------------
+PRIVATE_AWS_ACCESS_KEY_ID=null
+PRIVATE_AWS_SECRET_ACCESS_KEY=null
+PRIVATE_AWS_DEFAULT_REGION=null
+PRIVATE_AWS_BUCKET=null
+PRIVATE_AWS_URL=null
+PRIVATE_AWS_BUCKET_ROOT=null
+
+# --------------------------------------------
+# OPTIONAL: LOGIN THROTTLING
+# --------------------------------------------
+LOGIN_MAX_ATTEMPTS=5
+LOGIN_LOCKOUT_DURATION=60
+RESET_PASSWORD_LINK_EXPIRES=900
+
+# --------------------------------------------
+# OPTIONAL: MISC
+# --------------------------------------------
+APP_LOG=single
+APP_LOG_MAX_FILES=10
+APP_LOCKED=false
+APP_CIPHER=AES-256-CBC
+APP_FORCE_TLS=false
+GOOGLE_MAPS_API=
+LDAP_MEM_LIM=500M
+LDAP_TIME_LIM=600
+IMPORT_TIME_LIMIT=600
+IMPORT_MEMORY_LIMIT=500M
+REPORT_TIME_LIMIT=12000
+
+APP_ENV=production
+APP_DEBUG=false
+APP_LOCALE=en
+APP_URL=[[softurl]]/public
+APP_KEY=[[key]]
+APP_CIPHER=AES-256-CBC
+REQUIRE_HTTPS=[[https_enable]]
+DB_TYPE=mysql
+DB_HOST=[[softdbhost]]
+DB_DATABASE=[[softdb]]
+DB_USERNAME=[[softdbuser]]
+DB_PASSWORD=[[softdbpass]]
+MAIL_DRIVER=smtp
+MAIL_PORT=587
+MAIL_ENCRYPTION=tls
+MAIL_HOST=
+MAIL_USERNAME=
+MAIL_FROM_NAME=
+MAIL_FROM_ADDRESS=
+MAIL_PASSWORD=
+PHANTOMJS_CLOUD_KEY=a-demo-key-with-low-quota-per-ip-address
+PHANTOMJS_SECRET=[[PHANTOMJS_SECRET]]
+MAILGUN_DOMAIN=
+MAILGUN_SECRET=
+APP_NAME=Lychee
+APP_ENV=production
+APP_KEY=base64:[[APP_KEY]]
+APP_DEBUG=false
+APP_URL=http://localhost
+
+# enable or disable debug bar. By default it is disabled.
+DEBUGBAR_ENABLED=false
+
+LOG_CHANNEL=stack
+
+##############################################################################
+# IMPORTANT: To migrate from Lychee v3 you *MUST* use the same MySQL/MariaDB #
+#            server as v3.                                                   #
+##############################################################################
+
+# Table prefix (e.g. lychee_) of a Lychee v3 instance for migration
+DB_OLD_LYCHEE_PREFIX=
+
+# DB_CONNECTION can be sqlite, mysql or pgsql. For sqlite the other entries are
+# not required, but an existing sqlite3 database may be specified if desired. In
+# this case, please use an absolute path. DB_DATABASE may be omitted but should
+# *not* be left blank.
+DB_CONNECTION=mysql
+DB_HOST=[[softdbhost]]
+DB_PORT=3306
+DB_DATABASE=[[softdb]]
+DB_USERNAME=[[softdbuser]]
+DB_PASSWORD=[[softdbpass]]
+DB_LOG_SQL=false
+
+TIMEZONE=UTC
+
+# folders in which the files will be stored
+# LYCHEE_DIST="/var/www/html/Lychee-Laravel/public/dist/"
+# LYCHEE_UPLOADS="/var/www/html/Lychee-Laravel/public/uploads/"
+
+# url to access those files
+# LYCHEE_DIST_URL="dist/"
+# LYCHEE_UPLOADS_URL="uploads/"
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+QUEUE_DRIVER=sync
+
+SECURITY_HEADER_HSTS_ENABLE=false
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_DRIVER=smtp
+MAIL_HOST=
+MAIL_PORT=
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
+
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+APP_ENV=local
+INSTALLED=true
+APP_KEY=[[app_key]]
+DB_DRIVER=mysql
+DB_HOST=[[softdbhost]]
+DB_DATABASE=[[softdb]]
+DB_USERNAME=[[softdbuser]]
+DB_PASSWORD=[[softdbpass]]
+APPLICATION_NAME=[[site_name]]
+APPLICATION_DOMAIN=[[domhost]][[relativeurl]]/public
+APPLICATION_REFERENCE=[[app_ref]]
+APP_URL=[[softurl]]/public
+ADMIN_USERNAME=[[admin_username]]
+ATTENDIZE_DEV=true
+ATTENDIZE_CLOUD=false
+
+APP_NAME=Attendize
+APP_ENV=production
+APP_KEY=[[APP_KEY]]
+APP_DEBUG=false
+APP_URL=[[softurl]]
+
+LOG_CHANNEL=stack
+
+DB_CONNECTION=mysql
+DB_HOST=[[softdbhost]]
+DB_PORT=3306
+DB_DATABASE=[[softdb]]
+DB_USERNAME=[[softdbuser]]
+DB_PASSWORD=[[softdbpass]]
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_DRIVER=smtp
+MAIL_HOST=maildev
+MAIL_PORT=25
+MAIL_USERNAME=
+MAIL_PASSWORD=
+MAIL_ENCRYPTION=
+
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
+AWS_DEFAULT_REGION=us-east-1
+AWS_BUCKET=
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+PUSHER_APP_CLUSTER=mt1
+
+MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
+MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
+
+# Attendize Variables
+DEFAULT_DATEPICKER_SEPERATOR="-"
+DEFAULT_DATEPICKER_FORMAT="yyyy-MM-dd HH:mm"
+DEFAULT_DATETIME_FORMAT="Y-m-d H:i"
+APP_TIMEZONE=
+
+MAIL_FROM_ADDRESS=testing@attendize.com
+MAIL_FROM_NAME=testing_service
+
+# https://github.com/NitMedia/wkhtml2pdf#driver-types
+WKHTML2PDF_BIN_FILE=wkhtmltopdf-amd64
+
+# Google Analytics
+GOOGLE_ANALYTICS_ID=
+GOOGLE_MAPS_GEOCODING_KEY=
+
+# Captcha Configuration
+CAPTCHA_IS_ON=false
+# can be recaptcha or hcaptcha
+CAPTCHA_TYPE=
+CAPTCHA_KEY=
+CAPTCHA_SECRET=
+
+TWITTER_WIDGET_ID=
+
+LOG=errorlog
+
+DB_TYPE=mysql
+# Every time you are making changes in .env file, in order changes to take an effect you need to run:
+# php artisan freescout:clear-cache
+
+# Application URL
+APP_URL=[[softurl]]
+
+# Use HTTP protocol and redirect to HTTPS
+APP_FORCE_HTTPS=[[APP_FORCE_HTTPS]]
+
+# Timezones: https://github.com/freescout-helpdesk/freescout/wiki/PHP-Timezones
+# Comment it to use default timezone from php.ini
+APP_TIMEZONE=America/New_York
+
+# Default language
+APP_LOCALE=[[language]]
+
+# Database settings
+DB_CONNECTION=mysql
+DB_HOST=[[softdbhost]]
+DB_PORT=3306
+DB_DATABASE=[[softdb]]
+DB_USERNAME=[[softdbuser]]
+DB_PASSWORD=[[softdbpass]]
+
+# Run the following console command to generate the key: php artisan key:generate
+# Otherwise application will show the following error: "Whoops, looks like something went wrong"
+APP_KEY=[[APP_KEY]]
+
+# Uncomment to see errors in your browser, don't forget to comment it back when debugging finished
+#APP_DEBUG=true
+APP_NAME="[[site_name]]"
+APP_ENV=local
+APP_KEY=base64:[[APP_KEY]]
+APP_DEBUG=true
+APP_LOG_LEVEL=debug
+APP_URL=[[softurl]]/public
+APP_LOCALE=en
+APP_FALLBACK_LOCALE=en
+
+DB_CONNECTION=mysql
+DB_HOST=[[softdbhost]]
+DB_PORT=3306
+DB_DATABASE=[[softdb]]
+DB_USERNAME=[[softdbuser]]
+DB_PASSWORD=[[softdbpass]]
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+
+MAIL_FETCH_HOST=smtp.yourmail.com
+MAIL_FETCH_PORT=110
+MAIL_FETCH_USERNAME=hello@handesk.com
+MAIL_FETCH_PASSWORD=secret-password
+MAIL_FETCH_OPTIONS=/pop3
+MAIL_FETCH_USE_SSL=true
+// for options check https://secure.php.net/manual/de/function.imap-open.php
+
+MAIL_SSLOPTIONS_ALLOW_SELF_SIGNED=false
+MAIL_SSLOPTIONS_VERIFY_PEER=true
+MAIL_SSLOPTIONS_VERIFY_PEER_NAME=true
+
+PUSHER_APP_ID=
+PUSHER_APP_KEY=
+PUSHER_APP_SECRET=
+
+//Leave ISSUES_DRIVER empty to not use any
+ISSUES_DRIVER=bitbucket
+BITBUCKET_USER=bitbucket-user-if-using-basic-auth
+BITBUCKET_PASSWORD=bitbucket-password-if-using-basic-auth
+BITBUCKET_KEY=the-bitbucket-key-if-using-oauth
+BITBUCKET_SECRET=the-bitbucket-secret-using-oauth
+APP_NAME=Akaunting
+APP_ENV=production
+APP_LOCALE=[[language]]
+APP_INSTALLED=true
+APP_KEY=base64:[[APP_KEY]]
+APP_DEBUG=false
+APP_SCHEDULE_TIME="09:00"
+
+DB_CONNECTION=mysql
+DB_HOST=[[softdbhost]]
+DB_PORT=3306
+DB_DATABASE=[[softdb]]
+DB_USERNAME=[[softdbuser]]
+DB_PASSWORD="[[softdbpass]]"
+DB_PREFIX=[[dbprefix]]
+
+BROADCAST_DRIVER=log
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_CONNECTION=sync
+LOG_CHANNEL=stack
+
+MAIL_MAILER=mail
+MAIL_HOST=localhost
+MAIL_PORT=2525
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_NAME=null
+MAIL_FROM_ADDRESS=null
+
+FIREWALL_ENABLED=true
+
+MODEL_CACHE_ENABLED=true
+# This file is a "template" of which env vars need to be defined for your application
+# Copy this file to .env file for development, create environment variables when deploying to production
+# https://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+
+###> symfony/framework-bundle ###
+APP_ENV=prod
+APP_SECRET=[[APP_SECRET]]
+APP_URL=[[softurl]]/public
+#TRUSTED_PROXIES=127.0.0.1,127.0.0.2
+#TRUSTED_HOSTS=localhost,example.com
+###< symfony/framework-bundle ###
+
+###> symfony/swiftmailer-bundle ###
+# For Gmail as a transport, use: "gmail://username:password@localhost"
+# For a generic SMTP server, use: "smtp://localhost:25?encryption=&auth_mode="
+# Delivery is disabled by default via "null://localhost"
+MAILER_URL=null://localhost
+###< symfony/swiftmailer-bundle ###
+
+DATABASE_URL=mysql://[[softdbuser]]:[[softdbpass]]@[[softdbhost]]:3306/[[softdb]]
+
+COMPOSER_HOME=[[softpath]]/var/cache/composer
+
+INSTANCE_ID=[[instance_id]]
+
+BLUE_GREEN_DEPLOYMENT=1
+
+SHOPWARE_HTTP_CACHE_ENABLED=1
+SHOPWARE_HTTP_DEFAULT_TTL=7200
+SHOPWARE_ES_HOSTS=""
+SHOPWARE_ES_ENABLED="0"
+SHOPWARE_ES_INDEXING_ENABLED="0"
+SHOPWARE_ES_INDEX_PREFIX="sw"
+
+SHOPWARE_CDN_STRATEGY_DEFAULT="id"
